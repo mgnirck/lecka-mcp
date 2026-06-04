@@ -1,0 +1,1657 @@
+[
+  {
+    "id": "gel-passion-fruit",
+    "name": "Energy Gel Passion Fruit",
+    "type": "gel",
+    "net_weight_g": 40,
+    "carbs_per_unit": 27,
+    "sodium_per_unit": 88,
+    "fructose_per_unit": 3.7,
+    "glucose_per_unit": 3.8,
+    "sucrose_per_unit": 8.2,
+    "fructose_pct_of_carbs": 14,
+    "dual_transporter": false,
+    "potassium_per_unit": 115,
+    "magnesium_per_unit": 5,
+    "energy_kcal_per_unit": 110,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "43249546526767",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "during"
+    ],
+    "lab_report": "AR-25-VD-249580-01-EN",
+    "lab_date": "2025-12-24",
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "43249546526767",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "44368630579390",
+            "units_per_pack": 12,
+            "price": 29.99
+          },
+          {
+            "shopify_variant_id": "44368630612158",
+            "units_per_pack": 1,
+            "price": 2.59
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "49881661669642",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601535467786",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "49881661636874",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "57678501183752",
+            "units_per_pack": 12,
+            "price": 36.99
+          },
+          {
+            "shopify_variant_id": "57678501216520",
+            "units_per_pack": 1,
+            "price": 3.8
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1125250882",
+            "units_per_pack": 12,
+            "price": 600000
+          },
+          {
+            "shopify_variant_id": "1159957439",
+            "units_per_pack": 1,
+            "price": 50000
+          }
+        ]
+      },
+      "sg": {
+        "variants": []
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "49101082493226",
+            "units_per_pack": 6,
+            "price": 144.0
+          },
+          {
+            "shopify_variant_id": "49101082525994",
+            "units_per_pack": 12,
+            "price": 288.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.99
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.7
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "49860811063594",
+            "units_per_pack": 12,
+            "price": 27.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "gel-coffee-cacao",
+    "name": "Energy Gel Coffee Cacao",
+    "type": "gel",
+    "net_weight_g": 43,
+    "carbs_per_unit": 22,
+    "sodium_per_unit": 120,
+    "fructose_per_unit": 0.1,
+    "glucose_per_unit": 0.4,
+    "sucrose_per_unit": 15.3,
+    "fructose_pct_of_carbs": 0,
+    "dual_transporter": false,
+    "potassium_per_unit": 89,
+    "magnesium_per_unit": 21,
+    "energy_kcal_per_unit": 100,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "43649538064431",
+    "caffeine": true,
+    "caffeine_mg": 80,
+    "ideal_time": [
+      "during"
+    ],
+    "lab_report": "AR-25-VD-258719-01-EN",
+    "lab_date": "2025-12-31",
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "43649538064431",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "45134288552126",
+            "units_per_pack": 12,
+            "price": 29.99
+          },
+          {
+            "shopify_variant_id": "45134288584894",
+            "units_per_pack": 1,
+            "price": 2.59
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "50948779671818",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601533927690",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "50948779639050",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "57678500725000",
+            "units_per_pack": 12,
+            "price": 36.99
+          },
+          {
+            "shopify_variant_id": "57678500757768",
+            "units_per_pack": 1,
+            "price": 3.8
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1150176317",
+            "units_per_pack": 12,
+            "price": 600000
+          },
+          {
+            "shopify_variant_id": "1160327888",
+            "units_per_pack": 1,
+            "price": 50000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "42549244133459",
+            "units_per_pack": 1,
+            "price": 3.21
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "50051279520042",
+            "units_per_pack": 6,
+            "price": 144.0
+          },
+          {
+            "shopify_variant_id": "50051279552810",
+            "units_per_pack": 12,
+            "price": 288.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.99
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.7
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "49963852366122",
+            "units_per_pack": 12,
+            "price": 27.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "gel-banana",
+    "name": "Energy Gel Banana",
+    "type": "gel",
+    "net_weight_g": 44,
+    "carbs_per_unit": 25,
+    "sodium_per_unit": 98,
+    "fructose_per_unit": 1.2,
+    "glucose_per_unit": 1.2,
+    "sucrose_per_unit": 14.7,
+    "fructose_pct_of_carbs": 5,
+    "dual_transporter": false,
+    "potassium_per_unit": 65,
+    "magnesium_per_unit": 9,
+    "energy_kcal_per_unit": 100,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "43249546854447",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "during"
+    ],
+    "lab_report": "AR-25-VD-249581-01-EN",
+    "lab_date": "2025-12-24",
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "43249546854447",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "44368627826878",
+            "units_per_pack": 12,
+            "price": 29.99
+          },
+          {
+            "shopify_variant_id": "44368627859646",
+            "units_per_pack": 1,
+            "price": 2.59
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "49881668026634",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601535172874",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "49881667993866",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "57678501675272",
+            "units_per_pack": 12,
+            "price": 36.99
+          },
+          {
+            "shopify_variant_id": "57678501708040",
+            "units_per_pack": 1,
+            "price": 3.8
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1125250887",
+            "units_per_pack": 12,
+            "price": 600000
+          },
+          {
+            "shopify_variant_id": "1160327319",
+            "units_per_pack": 1,
+            "price": 50000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "42051166666835",
+            "units_per_pack": 1,
+            "price": 3.21
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "49101171032362",
+            "units_per_pack": 6,
+            "price": 144.0
+          },
+          {
+            "shopify_variant_id": "49101171097898",
+            "units_per_pack": 12,
+            "price": 288.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.99
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.7
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "49860842717482",
+            "units_per_pack": 12,
+            "price": 27.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "gel-lime-ginger",
+    "name": "Energy Gel Lime Ginger",
+    "type": "gel",
+    "net_weight_g": 40,
+    "carbs_per_unit": 27,
+    "sodium_per_unit": 103,
+    "fructose_per_unit": 7.1,
+    "glucose_per_unit": 6.7,
+    "sucrose_per_unit": 0.4,
+    "fructose_pct_of_carbs": 26,
+    "dual_transporter": true,
+    "potassium_per_unit": 60,
+    "magnesium_per_unit": 7,
+    "energy_kcal_per_unit": 110,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "44452873404463",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "during"
+    ],
+    "lab_report": "AR-25-VD-251832-01-EN",
+    "lab_date": "2025-12-24",
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "44452873404463",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "45293740425406",
+            "units_per_pack": 12,
+            "price": 29.99
+          },
+          {
+            "shopify_variant_id": "45293740458174",
+            "units_per_pack": 1,
+            "price": 2.59
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "51596039815434",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601533468938",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "51596039782666",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "57678500430088",
+            "units_per_pack": 12,
+            "price": 36.99
+          },
+          {
+            "shopify_variant_id": "57678500462856",
+            "units_per_pack": 1,
+            "price": 3.8
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1157493058",
+            "units_per_pack": 12,
+            "price": 600000
+          },
+          {
+            "shopify_variant_id": "1160326580",
+            "units_per_pack": 1,
+            "price": 50000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "43073025310803",
+            "units_per_pack": 1,
+            "price": 3.21
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "50622014882090",
+            "units_per_pack": 6,
+            "price": 144.0
+          },
+          {
+            "shopify_variant_id": "50622014914858",
+            "units_per_pack": 12,
+            "price": 288.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.99
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.7
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "50453777678634",
+            "units_per_pack": 12,
+            "price": 27.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "gel-kumquat-honey",
+    "name": "Energy Gel Kumquat Honey",
+    "type": "gel",
+    "net_weight_g": 40,
+    "carbs_per_unit": 26,
+    "sodium_per_unit": 96,
+    "fructose_per_unit": 6.7,
+    "glucose_per_unit": 6.3,
+    "sucrose_per_unit": 0.35,
+    "fructose_pct_of_carbs": 26,
+    "dual_transporter": true,
+    "potassium_per_unit": 42,
+    "magnesium_per_unit": 6,
+    "energy_kcal_per_unit": 110,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "44452862492719",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "during"
+    ],
+    "lab_report": "AR-25-VD-251833-01-EN",
+    "lab_date": "2025-12-24",
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "44452862492719",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "45293152731326",
+            "units_per_pack": 12,
+            "price": 29.99
+          },
+          {
+            "shopify_variant_id": "45293152764094",
+            "units_per_pack": 1,
+            "price": 2.59
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "51596043976970",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601529372938",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "51596043944202",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "57678498267400",
+            "units_per_pack": 12,
+            "price": 36.99
+          },
+          {
+            "shopify_variant_id": "57678498300168",
+            "units_per_pack": 1,
+            "price": 3.8
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1157486060",
+            "units_per_pack": 12,
+            "price": 600000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "43073025671251",
+            "units_per_pack": 1,
+            "price": 3.21
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "50621994303786",
+            "units_per_pack": 6,
+            "price": 144.0
+          },
+          {
+            "shopify_variant_id": "50621994336554",
+            "units_per_pack": 12,
+            "price": 288.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.99
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.7
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "50453792424234",
+            "units_per_pack": 12,
+            "price": 27.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "gel-variety-pack",
+    "name": "Energy Gel Variety Pack",
+    "type": "variety_pack",
+    "carbs_per_unit": 25,
+    "sodium_per_unit": 103,
+    "price_usd": 27.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "43844672356399",
+    "caffeine": true,
+    "caffeine_mg": 80,
+    "ideal_time": [
+      "during"
+    ],
+    "contains": {
+      "us": {
+        "gel-passion-fruit": 3,
+        "gel-coffee-cacao": 3,
+        "gel-banana": 2,
+        "gel-lime-ginger": 2,
+        "gel-kumquat-honey": 2
+      },
+      "de": {
+        "gel-passion-fruit": 3,
+        "gel-coffee-cacao": 3,
+        "gel-banana": 3,
+        "gel-lime-ginger": 3,
+        "gel-kumquat-honey": 3
+      },
+      "dk": {
+        "gel-passion-fruit": 3,
+        "gel-coffee-cacao": 3,
+        "gel-banana": 2,
+        "gel-lime-ginger": 2,
+        "gel-kumquat-honey": 2
+      },
+      "ch": {
+        "gel-passion-fruit": 3,
+        "gel-coffee-cacao": 3,
+        "gel-banana": 3,
+        "gel-lime-ginger": 3,
+        "gel-kumquat-honey": 3
+      },
+      "vn": {
+        "gel-passion-fruit": 3,
+        "gel-coffee-cacao": 3,
+        "gel-banana": 2,
+        "gel-lime-ginger": 2,
+        "gel-kumquat-honey": 2
+      },
+      "sg": {
+        "gel-banana": 1
+      }
+    },
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "43844672356399",
+            "units_per_pack": 12,
+            "price": 27.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "45341759996094",
+            "units_per_pack": 15,
+            "price": 36.99
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "50971167916298",
+            "units_per_pack": 12,
+            "price": 209.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "51780152262920",
+            "units_per_pack": 15,
+            "price": 36.99
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1158896125",
+            "units_per_pack": 12,
+            "price": 600000
+          }
+        ]
+      },
+      "sg": {
+        "variants": []
+      },
+      "hk": {
+        "variants": []
+      },
+      "au": {
+        "variants": []
+      },
+      "fr": {
+        "variants": []
+      },
+      "kh": {
+        "variants": []
+      }
+    }
+  },
+  {
+    "id": "endurance-mix",
+    "name": "Endurance Mix (11 stk.)",
+    "type": "endurance_mix",
+    "carbs_per_unit": 24,
+    "sodium_per_unit": 85,
+    "price_usd": 0,
+    "units_per_box": 11,
+    "shopify_variant_id": "PLACEHOLDER_US",
+    "caffeine": true,
+    "caffeine_mg": 80,
+    "ideal_time": [
+      "before",
+      "during",
+      "after"
+    ],
+    "contains": {
+      "dk": {
+        "gel-banana": 1,
+        "gel-passion-fruit": 1,
+        "gel-coffee-cacao": 1,
+        "gel-kumquat-honey": 1,
+        "gel-lime-ginger": 1,
+        "bar-mango-coconut": 2,
+        "bar-cacao-banana": 2,
+        "bar-pineapple-banana": 2
+      }
+    },
+    "regions": {
+      "us": {
+        "variants": []
+      },
+      "de": {
+        "variants": []
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "50971111981322",
+            "units_per_pack": 11,
+            "price": 189.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": []
+      },
+      "vn": {
+        "variants": []
+      },
+      "sg": {
+        "variants": []
+      },
+      "hk": {
+        "variants": []
+      },
+      "au": {
+        "variants": []
+      },
+      "fr": {
+        "variants": []
+      },
+      "kh": {
+        "variants": []
+      }
+    }
+  },
+  {
+    "id": "ultra-gel-passion-fruit-mango",
+    "name": "Ultra Gel Passion Fruit Mango",
+    "type": "ultra_gel",
+    "net_weight_g": 102,
+    "carbs_per_unit": 65,
+    "sodium_per_unit": 405,
+    "fructose_per_unit": 5.4,
+    "glucose_per_unit": 5.2,
+    "sucrose_per_unit": 29.6,
+    "fructose_pct_of_carbs": 8,
+    "dual_transporter": false,
+    "potassium_per_unit": 158,
+    "magnesium_per_unit": 11,
+    "energy_kcal_per_unit": 260,
+    "price_usd": 0,
+    "units_per_box": 1,
+    "shopify_variant_id": "PLACEHOLDER_US",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "during"
+    ],
+    "lab_report": "AR-25-VD-256496-01-EN",
+    "lab_date": "2026-01-08",
+    "regions": {
+      "us": {
+        "variants": []
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "PLACEHOLDER_DE_ULTRA_GEL_PFM",
+            "units_per_pack": 1,
+            "price": 7.5
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "PLACEHOLDER_DK_ULTRA_GEL_PFM",
+            "units_per_pack": 1,
+            "price": 59.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "57767835828488",
+            "units_per_pack": 1,
+            "price": 8.0
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "PLACEHOLDER_VN_ULTRA_GEL_PFM",
+            "units_per_pack": 1,
+            "price": 185000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "PLACEHOLDER_SG_ULTRA_GEL_PFM",
+            "units_per_pack": 1,
+            "price": 10.8
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "51518552375594",
+            "units_per_pack": 1,
+            "price": 58.0
+          },
+          {
+            "shopify_variant_id": "51518415438122",
+            "units_per_pack": 3,
+            "price": 145.0
+          },
+          {
+            "shopify_variant_id": "51518415470890",
+            "units_per_pack": 6,
+            "price": 278.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 7.99
+          }
+        ]
+      },
+      "fr": {
+        "variants": []
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "51561162375466",
+            "units_per_pack": 4,
+            "price": 28.8
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "ultra-gel-banana-peanut-butter",
+    "name": "Ultra Gel Banana Peanut Butter",
+    "type": "ultra_gel",
+    "net_weight_g": 108,
+    "carbs_per_unit": 60,
+    "sodium_per_unit": 448,
+    "fructose_per_unit": 2.0,
+    "glucose_per_unit": 2.1,
+    "sucrose_per_unit": 38.0,
+    "fructose_pct_of_carbs": 3,
+    "dual_transporter": false,
+    "fat_per_unit": 6.4,
+    "protein_per_unit": 4.1,
+    "energy_kcal_per_unit": 312,
+    "high_fat": true,
+    "price_usd": 0,
+    "units_per_box": 1,
+    "shopify_variant_id": "PLACEHOLDER_US",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "during"
+    ],
+    "allergens": [
+      "peanuts"
+    ],
+    "ingredients": "Cane Sugar, Banana (27%), Tapioca Syrup, Peanuts (12%), Filtered Water, Sodium Citrate, Glutinous Rice Flour, Salt, Cinnamon, Magnesium Gluconate, Potassium Citrate",
+    "potassium_per_unit": null,
+    "magnesium_per_unit": null,
+    "lab_report": "AR-26-VD-082550-01-EN",
+    "lab_date": "2026-04-13",
+    "regions": {
+      "us": {
+        "variants": []
+      },
+      "de": {
+        "variants": []
+      },
+      "dk": {
+        "variants": []
+      },
+      "ch": {
+        "variants": []
+      },
+      "vn": {
+        "variants": []
+      },
+      "sg": {
+        "variants": []
+      },
+      "hk": {
+        "variants": []
+      },
+      "au": {
+        "variants": []
+      },
+      "fr": {
+        "variants": []
+      },
+      "kh": {
+        "variants": []
+      }
+    }
+  },
+  {
+    "id": "bar-variety-pack",
+    "name": "Energy Bar Variety Pack",
+    "type": "bar_variety_pack",
+    "carbs_per_unit": 24,
+    "sodium_per_unit": 78,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "43249547018287",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "before",
+      "after"
+    ],
+    "contains": {
+      "vn": {
+        "bar-mango-coconut": 3,
+        "bar-cacao-banana": 3,
+        "bar-banana-cinnamon": 3,
+        "bar-pineapple-banana": 3
+      }
+    },
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "43249547018287",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "43525358878910",
+            "units_per_pack": 8,
+            "price": 19.5
+          }
+        ]
+      },
+      "dk": {
+        "variants": []
+      },
+      "ch": {
+        "variants": []
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1158896932",
+            "units_per_pack": 12,
+            "price": 480000
+          }
+        ]
+      },
+      "sg": {
+        "variants": []
+      },
+      "hk": {
+        "variants": []
+      },
+      "au": {
+        "variants": []
+      },
+      "fr": {
+        "variants": []
+      },
+      "kh": {
+        "variants": []
+      }
+    }
+  },
+  {
+    "id": "bar-mango-coconut",
+    "name": "Energy Bar Mango Coconut",
+    "type": "bar",
+    "net_weight_g": 40,
+    "carbs_per_unit": 23,
+    "sodium_per_unit": 60,
+    "fat_per_unit": 7,
+    "protein_per_unit": 3,
+    "potassium_per_unit": 223,
+    "energy_kcal_per_unit": 160,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "43249548558383",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "before",
+      "after"
+    ],
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "43249548558383",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "42825271083198",
+            "units_per_pack": 12,
+            "price": 28.9
+          },
+          {
+            "shopify_variant_id": "43508209483966",
+            "units_per_pack": 1,
+            "price": 2.49
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "44220595601674",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601536778506",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "44608860455178",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "51778157150472",
+            "units_per_pack": 12,
+            "price": 36.99
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1162368754",
+            "units_per_pack": 1,
+            "price": 40000
+          },
+          {
+            "shopify_variant_id": "1154478003",
+            "units_per_pack": 12,
+            "price": 480000
+          }
+        ]
+      },
+      "sg": {
+        "variants": []
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "46364605120810",
+            "units_per_pack": 6,
+            "price": 180.0
+          },
+          {
+            "shopify_variant_id": "46364605153578",
+            "units_per_pack": 12,
+            "price": 360.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.0
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.5
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "49860970185002",
+            "units_per_pack": 12,
+            "price": 20.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "bar-cacao-banana",
+    "name": "Energy Bar Cacao Banana",
+    "type": "bar",
+    "net_weight_g": 40,
+    "carbs_per_unit": 21,
+    "sodium_per_unit": 78,
+    "fat_per_unit": 8,
+    "protein_per_unit": 3,
+    "potassium_per_unit": 451,
+    "energy_kcal_per_unit": 164,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "PLACEHOLDER_US",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "before",
+      "after"
+    ],
+    "regions": {
+      "us": {
+        "variants": []
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "42825278914750",
+            "units_per_pack": 12,
+            "price": 28.9
+          },
+          {
+            "shopify_variant_id": "43508198015166",
+            "units_per_pack": 1,
+            "price": 2.49
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "44220597240074",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601536450826",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "44608860422410",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": []
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1162369093",
+            "units_per_pack": 1,
+            "price": 40000
+          },
+          {
+            "shopify_variant_id": "1141355435",
+            "units_per_pack": 12,
+            "price": 480000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "40389468389459",
+            "units_per_pack": 1,
+            "price": 3.21
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "46364390097194",
+            "units_per_pack": 6,
+            "price": 180.0
+          },
+          {
+            "shopify_variant_id": "46364390129962",
+            "units_per_pack": 12,
+            "price": 360.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.0
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.5
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "49863643726122",
+            "units_per_pack": 12,
+            "price": 20.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "bar-banana-cinnamon",
+    "name": "Energy Bar Banana Cinnamon",
+    "type": "bar",
+    "net_weight_g": 40,
+    "carbs_per_unit": 27,
+    "sodium_per_unit": 92,
+    "fat_per_unit": 2,
+    "protein_per_unit": 2,
+    "potassium_per_unit": 243,
+    "energy_kcal_per_unit": 139,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "PLACEHOLDER_US",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "before",
+      "after"
+    ],
+    "regions": {
+      "us": {
+        "variants": []
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "42825293234366",
+            "units_per_pack": 12,
+            "price": 28.9
+          },
+          {
+            "shopify_variant_id": "44061328474302",
+            "units_per_pack": 1,
+            "price": 2.49
+          }
+        ]
+      },
+      "dk": {
+        "variants": []
+      },
+      "ch": {
+        "variants": []
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1162369016",
+            "units_per_pack": 1,
+            "price": 40000
+          },
+          {
+            "shopify_variant_id": "1141355329",
+            "units_per_pack": 12,
+            "price": 480000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "40189107077203",
+            "units_per_pack": 1,
+            "price": 3.21
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "46363724185898",
+            "units_per_pack": 6,
+            "price": 180.0
+          },
+          {
+            "shopify_variant_id": "46363724218666",
+            "units_per_pack": 12,
+            "price": 360.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.0
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.5
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "49860904124714",
+            "units_per_pack": 12,
+            "price": 20.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "bar-pineapple-banana",
+    "name": "Energy Bar Pineapple Banana",
+    "type": "bar",
+    "net_weight_g": 40,
+    "carbs_per_unit": 23,
+    "sodium_per_unit": 77,
+    "fat_per_unit": 4,
+    "protein_per_unit": 2,
+    "potassium_per_unit": 281,
+    "energy_kcal_per_unit": 135,
+    "price_usd": 29.95,
+    "units_per_box": 12,
+    "shopify_variant_id": "43249547706415",
+    "caffeine": false,
+    "caffeine_mg": 0,
+    "ideal_time": [
+      "before",
+      "after"
+    ],
+    "regions": {
+      "us": {
+        "variants": [
+          {
+            "shopify_variant_id": "43249547706415",
+            "units_per_pack": 12,
+            "price": 29.95
+          }
+        ]
+      },
+      "de": {
+        "variants": [
+          {
+            "shopify_variant_id": "42825289957566",
+            "units_per_pack": 12,
+            "price": 28.9
+          },
+          {
+            "shopify_variant_id": "44061332373694",
+            "units_per_pack": 1,
+            "price": 2.49
+          }
+        ]
+      },
+      "dk": {
+        "variants": [
+          {
+            "shopify_variant_id": "44608862191882",
+            "units_per_pack": 12,
+            "price": 209.0
+          },
+          {
+            "shopify_variant_id": "51601535729930",
+            "units_per_pack": 6,
+            "price": 115.0
+          },
+          {
+            "shopify_variant_id": "44608862224650",
+            "units_per_pack": 1,
+            "price": 21.0
+          }
+        ]
+      },
+      "ch": {
+        "variants": [
+          {
+            "shopify_variant_id": "51764600766728",
+            "units_per_pack": 12,
+            "price": 36.99
+          }
+        ]
+      },
+      "vn": {
+        "variants": [
+          {
+            "shopify_variant_id": "1162368673",
+            "units_per_pack": 1,
+            "price": 40000
+          },
+          {
+            "shopify_variant_id": "1141355224",
+            "units_per_pack": 12,
+            "price": 480000
+          }
+        ]
+      },
+      "sg": {
+        "variants": [
+          {
+            "shopify_variant_id": "41347780182099",
+            "units_per_pack": 1,
+            "price": 3.21
+          }
+        ]
+      },
+      "hk": {
+        "variants": [
+          {
+            "shopify_variant_id": "46364666462506",
+            "units_per_pack": 6,
+            "price": 180.0
+          },
+          {
+            "shopify_variant_id": "46364666495274",
+            "units_per_pack": 12,
+            "price": 360.0
+          }
+        ]
+      },
+      "au": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 3.0
+          }
+        ]
+      },
+      "fr": {
+        "variants": [
+          {
+            "units_per_pack": 1,
+            "price": 2.5
+          }
+        ]
+      },
+      "kh": {
+        "variants": [
+          {
+            "shopify_variant_id": "49863631831338",
+            "units_per_pack": 12,
+            "price": 20.0
+          }
+        ]
+      }
+    }
+  }
+]
