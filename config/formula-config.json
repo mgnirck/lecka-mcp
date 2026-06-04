@@ -1,0 +1,196 @@
+{
+  "_comment": "All rates are evidence-based guidelines (ISSN / Burke et al.). Adjust as needed.",
+
+  "carb_rates_g_per_hour": {
+    "_comment": "Base carb intake targets by race type, indexed by effort tier",
+    "5k":          { "easy": 30, "race_pace": 40, "hard": 50 },
+    "10k":         { "easy": 30, "race_pace": 45, "hard": 60 },
+    "half_marathon":{ "easy": 40, "race_pace": 60, "hard": 75 },
+    "marathon":    { "easy": 50, "race_pace": 60, "hard": 75 },
+    "ultra_50k":   { "easy": 60, "race_pace": 70, "hard": 90 },
+    "ultra_100k":  { "easy": 60, "race_pace": 75, "hard": 90 },
+    "triathlon_sprint": { "easy": 30, "race_pace": 45, "hard": 60 },
+    "triathlon_olympic":{ "easy": 40, "race_pace": 60, "hard": 75 },
+    "triathlon_70_3":   { "easy": 50, "race_pace": 70, "hard": 90 },
+    "triathlon_140_6":  { "easy": 60, "race_pace": 75, "hard": 90 }
+  },
+
+  "effort_modifiers": {
+    "_comment": [
+      "Secondary multiplier applied on top of the effort-indexed base carb rate.",
+      "Physiological rationale (ISSN / Burke et al.):",
+      "  easy      0.85 — at sub-threshold efforts fat oxidation contributes more",
+      "            (~50-60% VO2max); carbohydrate demand is reduced, so the base",
+      "            rate is scaled down to avoid over-fuelling and GI distress.",
+      "  race_pace 1.00 — the base rates in carb_rates_g_per_hour are calibrated",
+      "            for race-pace effort; no additional adjustment needed.",
+      "  hard      1.15 — above threshold (~85%+ VO2max) muscles rely almost",
+      "            exclusively on glycogen. A 15% uplift targets higher turnover",
+      "            and supports delayed fatigue in shorter, intense efforts."
+    ],
+    "easy":       0.85,
+    "race_pace":  1.0,
+    "hard":       1.15
+  },
+
+  "condition_modifiers": {
+    "_comment": "Sodium and fluid uplifts for environmental conditions",
+    "cool":   { "sodium_multiplier": 0.85, "fluid_multiplier": 0.9 },
+    "mild":   { "sodium_multiplier": 1.0,  "fluid_multiplier": 1.0 },
+    "warm":   { "sodium_multiplier": 1.25, "fluid_multiplier": 1.2 },
+    "hot":    { "sodium_multiplier": 1.5,  "fluid_multiplier": 1.4 },
+    "humid":  { "sodium_multiplier": 1.4,  "fluid_multiplier": 1.35 }
+  },
+
+  "sodium_targets_mg_per_hour": {
+    "_comment": "Base sodium target before condition modifier. Scales with body weight.",
+    "base_per_kg": 8,
+    "minimum":     300,
+    "maximum":     1500
+  },
+
+  "fluid_targets_ml_per_hour": {
+    "_comment": "Base fluid target before condition modifier. Scales with body weight.",
+    "base_per_kg": 8,
+    "minimum":     400,
+    "maximum":     1000
+  },
+
+  "gender_modifiers": {
+    "_comment": "Small downward adjustment for female athletes (lower avg sweat rate)",
+    "male":   1.0,
+    "female": 0.9,
+    "other":  0.95
+  },
+
+  "timing_rules": {
+    "_comment": "When to consume each product type relative to race start (minutes)",
+    "before": {
+      "window_start_min": -60,
+      "window_end_min":   -15,
+      "note": "Consume 15–60 min before the start"
+    },
+    "during": {
+      "first_intake_min":  20,
+      "interval_min":      30,
+      "min_interval_min":  20,
+      "note": "First intake at ~20 min, then every 30 min"
+    },
+    "after": {
+      "window_start_min": 0,
+      "window_end_min":   60,
+      "note": "Consume within 60 min of finishing"
+    },
+    "ultra_gel": {
+      "interval_min":     50,
+      "min_interval_min": 45,
+      "note":             "Eat over 10–15 min, not all at once"
+    }
+  },
+
+  "caffeine_rules": {
+    "max_mg_per_hour":         200,
+    "recommended_dose_mg":     80,
+    "first_dose_offset_min":   45,
+    "first_dose_race_fraction": 0.4,
+    "note": "Caffeine gels replace one plain gel slot when caffeine_ok = true"
+  },
+
+  "training_mode": {
+    "_comment": "In training mode reduce carb targets to train the gut at lower doses",
+    "carb_rate_multiplier": 0.7
+  },
+
+  "carb_calculation_strategy": {
+    "_comment": [
+      "Select which carb calculation strategy to use.",
+      "Options: effort_based, duration_based, hybrid, distance_adaptive (default)",
+      "distance_adaptive: linearly interpolates between research anchors from goal_minutes.",
+      "This ensures every unique race duration produces a unique carb target.",
+      "See src/strategies/carb-strategies.js for implementation details."
+    ],
+    "selected": "distance_adaptive"
+  },
+
+  "elevation_modifiers": {
+    "_comment": "Carb and sodium uplifts based on average course grade (elevation_gain_m / distance_m * 100). Climbing increases glycogen demand and core temperature.",
+    "flat":          { "avg_grade_pct_max": 1,  "carb_modifier": 1.00, "sodium_modifier": 1.00 },
+    "rolling":       { "avg_grade_pct_max": 3,  "carb_modifier": 1.05, "sodium_modifier": 1.05 },
+    "hilly":         { "avg_grade_pct_max": 6,  "carb_modifier": 1.10, "sodium_modifier": 1.08 },
+    "very_hilly":    { "avg_grade_pct_max": 10, "carb_modifier": 1.15, "sodium_modifier": 1.12 },
+    "mountain":      { "avg_grade_pct_max": 999,"carb_modifier": 1.22, "sodium_modifier": 1.18 }
+  },
+
+  "athlete_profiles": {
+    "_comment": [
+      "Athlete profile modifiers for carb, sodium, and fluid targets.",
+      "Accounts for variation in absorption capacity and sweat rate based on training.",
+      "Untrained athletes have 30-40% lower sweat rates and carb absorption.",
+      "Elite athletes can tolerate higher rates due to training adaptations."
+    ],
+    "untrained": {
+      "carb_modifier": 0.85,
+      "sodium_modifier": 0.85,
+      "fluid_modifier": 0.85,
+      "description": "Lower sweat rate, reduced carb absorption capacity"
+    },
+    "intermediate": {
+      "carb_modifier": 1.0,
+      "sodium_modifier": 1.0,
+      "fluid_modifier": 1.0,
+      "description": "Standard endurance athlete profile (baseline)"
+    },
+    "trained": {
+      "carb_modifier": 1.1,
+      "sodium_modifier": 1.1,
+      "fluid_modifier": 1.1,
+      "description": "Higher sweat rate, greater absorption capacity, better thermoregulation"
+    },
+    "elite": {
+      "carb_modifier": 1.15,
+      "sodium_modifier": 1.15,
+      "fluid_modifier": 1.15,
+      "description": "Optimized sweat control, maximum absorption capacity"
+    }
+  },
+
+  "vo2max_modifiers": {
+    "_comment": "For future VO2Max-adjusted strategy (if athlete provides fitness data)",
+    "untrained": 0.85,
+    "intermediate": 1.0,
+    "trained": 1.15,
+    "elite": 1.2
+  },
+
+  "temperature_modifiers": {
+    "_comment": [
+      "Future: continuous temperature input (Celsius) instead of categorical conditions.",
+      "Maps ambient temperature to sodium/fluid multipliers via curve.",
+      "Base: 20°C (mild). Sweat rate ~2-3% increase per °C above baseline."
+    ],
+    "baseline_temp_celsius": 20,
+    "baseline_sodium_modifier": 1.0,
+    "baseline_fluid_modifier": 1.0
+  },
+
+  "validation_rules": {
+    "_comment": [
+      "Validation and warning thresholds for carb, sodium, fluid recommendations.",
+      "Helps catch potentially problematic fueling strategies."
+    ],
+    "carb": {
+      "min_for_event_min": 45,
+      "warning_high_short_race": "For events <45 min, carb intake is typically unnecessary",
+      "warning_high_carb_rate": "For short races, carb rates >30 g/h increase GI distress risk"
+    },
+    "sodium": {
+      "warning_hot_humidity": "Consider pre-race sodium loading (20.5g in 2.5L water, 2-4 hrs before start)",
+      "warning_duration_min": 240,
+      "max_safe_mg_per_hour": 1500
+    },
+    "fluid": {
+      "max_safe_ml_per_hour": 1000,
+      "warning_overhydration": "Intakes >1000 ml/h increase hyponatremia risk in events <2 hours"
+    }
+  }
+}

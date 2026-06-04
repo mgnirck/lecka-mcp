@@ -35,9 +35,12 @@
  * }
  */
 
-import formulaConfig from '../config/formula-config.json' with { type: 'json' }
-import * as carbStrategies from '../strategies/carb-strategies.js'
-import { SINGLE_TRANSPORTER_CEILING } from './kit-calculator.js'
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const formulaConfig = require('../config/formula-config.json')
+import * as carbStrategies from './carb-strategies.js'
+
+const SINGLE_TRANSPORTER_CEILING = 65
 
 export function calculateTargets(inputs) {
   const {
@@ -206,83 +209,3 @@ export function calculateTargets(inputs) {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Dev smoke-test — only runs in Vite dev mode, never in production builds
-// Demonstrates core features: strategies, athlete profiles, validation, warnings
-// ─────────────────────────────────────────────────────────────────────────────
-if (import.meta.env?.DEV) {
-  console.log('=== Lecka Nutrition Engine — Smoke Tests ===\n')
-
-  // Sample 1: Half marathon (trained athlete, warm conditions)
-  const sample1 = calculateTargets({
-    race_type:        'half_marathon',
-    goal_minutes:     135,
-    weight_kg:        70,
-    gender:           'male',
-    conditions:       'warm',
-    effort:           'race_pace',
-    caffeine_ok:      true,
-    training_mode:    false,
-    athlete_profile:  'trained',
-  })
-
-  console.log('Sample 1: Half Marathon (Trained Athlete)')
-  console.log(`  Race:       ${sample1.race_type}, ${sample1.total_duration_minutes} min`)
-  console.log(`  Athlete:    ${sample1.athlete_profile}, effort=${sample1.effort}`)
-  console.log(`  Strategy:   ${sample1.carb_strategy}`)
-  console.log(`  Carb:       ${sample1.carb_per_hour} g/h → ${sample1.total_carbs} g`)
-  console.log(`  Sodium:     ${sample1.sodium_per_hour} mg/h → ${sample1.total_sodium} mg`)
-  console.log(`  Fluid:      ${sample1.fluid_ml_per_hour} ml/h`)
-  if (sample1.warnings.length > 0) {
-    console.log(`  Warnings:   ${sample1.warnings.map((w) => w.message).join('; ')}`)
-  }
-
-  // Sample 2: 5K race (validation test — should warn about short race)
-  const sample2 = calculateTargets({
-    race_type:        '5k',
-    goal_minutes:     22,
-    weight_kg:        70,
-    gender:           'male',
-    conditions:       'mild',
-    effort:           'hard',
-    caffeine_ok:      true,
-    training_mode:    false,
-    athlete_profile:  'intermediate',
-  })
-
-  console.log('\nSample 2: 5K Race (Validation Test)')
-  console.log(`  Race:       ${sample2.race_type}, ${sample2.total_duration_minutes} min`)
-  console.log(`  Carb:       ${sample2.carb_per_hour} g/h (expect warnings for short race)`)
-  console.log(`  Sodium:     ${sample2.sodium_per_hour} mg/h`)
-  console.log(`  Fluid:      ${sample2.fluid_ml_per_hour} ml/h`)
-  if (sample2.warnings.length > 0) {
-    console.log(`  ✓ Warnings detected (as expected):`)
-    sample2.warnings.forEach((w) => console.log(`    - [${w.type}] ${w.message}`))
-  }
-
-  // Sample 3: Ultra 50K with gut training mode
-  const sample3 = calculateTargets({
-    race_type:        'ultra_50k',
-    goal_minutes:     360,
-    weight_kg:        75,
-    gender:           'female',
-    conditions:       'hot',
-    effort:           'race_pace',
-    caffeine_ok:      true,
-    training_mode:    true,
-    athlete_profile:  'elite',
-  })
-
-  console.log('\nSample 3: Ultra 50K (Gut Training Mode, Hot Conditions)')
-  console.log(`  Race:       ${sample3.race_type}, ${sample3.total_duration_minutes} min`)
-  console.log(`  Athlete:    ${sample3.athlete_profile}, training_mode=true`)
-  console.log(`  Carb:       ${sample3.carb_per_hour} g/h (reduced via training mode)`)
-  console.log(`  Sodium:     ${sample3.sodium_per_hour} mg/h`)
-  console.log(`  Fluid:      ${sample3.fluid_ml_per_hour} ml/h`)
-  if (sample3.warnings.length > 0) {
-    console.log(`  Warnings:`)
-    sample3.warnings.forEach((w) => console.log(`    - ${w.message}`))
-  }
-
-  console.log('==============================================')
-} // end DEV smoke-test
