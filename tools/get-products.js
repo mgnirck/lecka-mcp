@@ -39,6 +39,7 @@ export async function run(args) {
   let products
   try {
     const res = await fetch(PRODUCTS_API, { signal: AbortSignal.timeout(5000) })
+    if (!res.ok) throw new Error(`API returned ${res.status}`)
     products = await res.json()
   } catch {
     products = FALLBACK
