@@ -5,6 +5,95 @@ const PRODUCTS = require('../config/products.json')
 
 const SINGLE_TRANSPORTER_CEILING = 65
 
+const REGIONS_API = 'https://plan.getlecka.com/api/regions'
+
+// Hardcoded fallback — used only if the live API is unreachable
+const FALLBACK_REGIONS = {
+  us: { store_url: 'https://www.getlecka.com', type: 'shopify' },
+  de: { store_url: 'https://www.getlecka.de', type: 'shopify' },
+  dk: { store_url: 'https://www.getlecka.dk', type: 'shopify' },
+  ch: { store_url: 'https://www.getlecka.ch', type: 'shopify' },
+  kh: { store_url: 'https://leckacambodia.myshopify.com', type: 'shopify' },
+  vn: { store_url: null, type: 'haravan' },
+  sg: { store_url: 'https://www.rdrc.sg/collections/lecka', type: 'distributor' },
+  hk: { store_url: 'https://foodisdom.is/collections/lecka', type: 'distributor' },
+  au: { store_url: 'https://www.wildearth.com.au/brand/Lecka', type: 'distributor' },
+  fr: { store_url: 'https://www.audacesports.fr/brand/15-lecka', type: 'distributor' },
+}
+
+async function fetchRegions() {
+  try {
+    const res = await fetch(REGIONS_API, { signal: AbortSignal.timeout(5000) })
+    if (!res.ok) return FALLBACK_REGIONS
+    return await res.json()
+  } catch {
+    return FALLBACK_REGIONS
+  }
+}
+
+const ZALO_URL = 'https://zalo.me/0988440434'
+
+function buildMCPCartURL(gelProductIds, gelCount, region, products, regionsData) {
+  const regionConfig = regionsData[region] ?? regionsData['us']
+  const regionType = regionConfig?.type ?? 'shopify'
+  const storeUrl = regionConfig?.store_url ?? 'https://www.getlecka.com'
+
+  // Vietnam — Haravan, no cart URL
+  if (regionType === 'haravan') {
+    return {
+      cart_url: ZALO_URL,
+      cart_note: 'Order via Zalo for Vietnam delivery.',
+    }
+  }
+
+  // Distributor regions — no cart, just store link
+  if (regionType === 'distributor') {
+    return {
+      cart_url: storeUrl,
+      cart_note: 'Visit the store to purchase Lecka products in your region.',
+    }
+  }
+
+  // Shopify regions — build cart URL
+  const variantLines = []
+  for (const productId of gelProductIds) {
+    const product = products.find(p => p.id === productId)
+    if (!product) continue
+
+    const regionVariants = product.regions?.[region]?.variants ?? []
+    if (regionVariants.length === 0) continue
+
+    // Prefer single-unit variant; fall back to first variant
+    const singleUnit = regionVariants.find(v => v.units_per_pack === 1)
+    const variant = singleUnit ?? regionVariants[0]
+    if (!variant?.shopify_variant_id) continue
+
+    const vid = String(variant.shopify_variant_id)
+    if (!/^\d+$/.test(vid)) continue
+
+    const unitsNeeded = Math.ceil(gelCount / gelProductIds.length)
+    const packSize = variant.units_per_pack ?? 1
+    const packsNeeded = Math.ceil(unitsNeeded / packSize)
+
+    variantLines.push(`${vid}:${packsNeeded}`)
+  }
+
+  if (variantLines.length === 0) {
+    return { cart_url: storeUrl, cart_note: null }
+  }
+
+  const cartPath = `/cart/${variantLines.join(',')}`
+  const params = ['utm_source=claude']
+  if (region === 'us') params.push('discount=NUTRIPLAN10')
+
+  return {
+    cart_url: `${storeUrl}${cartPath}?${params.join('&')}`,
+    cart_note: region === 'us'
+      ? 'Discount code NUTRIPLAN10 applied automatically.'
+      : null,
+  }
+}
+
 export const toolDef = {
   name: 'calculate_fueling_plan',
   description: 'Calculates personalised race nutrition targets (carbs, sodium, fluid) for an endurance athlete and returns a list of Lecka products that match the target. Use this when an athlete asks what to eat during a race, how many gels they need, or what their carb target should be.',
@@ -76,11 +165,14 @@ export async function run(args) {
     region = 'us',
   } = args
 
-  // Calculate nutrition targets
-  const targets = calculateTargets({
-    race_type, goal_minutes, weight_kg,
-    gender, conditions, effort, caffeine_ok, athlete_profile,
-  })
+  // Fetch live regions and calculate targets in parallel
+  const [regionsData, targets] = await Promise.all([
+    fetchRegions(),
+    Promise.resolve(calculateTargets({
+      race_type, goal_minutes, weight_kg,
+      gender, conditions, effort, caffeine_ok, athlete_profile,
+    })),
+  ])
 
   // Filter products available in the region
   const available = PRODUCTS.filter(p => {
@@ -106,6 +198,16 @@ export async function run(args) {
   // Needs dual transporter?
   const needs_dual_transporter =
     targets.carb_per_hour > SINGLE_TRANSPORTER_CEILING && goal_minutes >= 150
+
+  // Build cart URL
+  const gelIdsForCart = eligibleGels.slice(0, 2).map(p => p.id)
+  const { cart_url, cart_note } = buildMCPCartURL(
+    gelIdsForCart,
+    gel_count_estimate,
+    region,
+    available,
+    regionsData
+  )
 
   return {
     targets: {
@@ -143,6 +245,8 @@ export async function run(args) {
         ? 'Hot or humid conditions: consider supplementing with electrolyte tabs (e.g. Nuun, Precision Hydration). Lecka does not currently sell electrolyte products.'
         : null,
     },
+    cart_url,
+    cart_note,
     planner_url: 'https://plan.getlecka.com',
   }
 }
