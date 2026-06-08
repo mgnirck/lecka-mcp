@@ -1,6 +1,7 @@
 import { toolDef as getProductsDef, run as runGetProducts } from '../tools/get-products.js'
 import { toolDef as calculateFuelingDef, run as runCalculateFueling } from '../tools/calculate-fueling.js'
 import { toolDef as getNutritionDef, run as runGetNutrition } from '../tools/get-nutrition.js'
+import { logToolCall } from '../lib/db-log.js'
 
 const TOOLS = [getProductsDef, calculateFuelingDef, getNutritionDef]
 const RUNNERS = {
@@ -43,10 +44,29 @@ async function handleOne(request) {
         isError: true,
       })
     }
+    const toolName = params.name
+    const args = params.arguments ?? {}
+    const start = Date.now()
     try {
-      const result = await runner(params.arguments ?? {})
+      const result = await runner(args)
+      logToolCall({
+        tool: toolName,
+        args,
+        region: args.region ?? null,
+        race_type: args.race_type ?? null,
+        error: false,
+        duration_ms: Date.now() - start,
+      })
       return ok(id, { content: [{ type: 'text', text: JSON.stringify(result, null, 2) }] })
     } catch (e) {
+      logToolCall({
+        tool: toolName,
+        args,
+        region: args.region ?? null,
+        race_type: args.race_type ?? null,
+        error: true,
+        duration_ms: Date.now() - start,
+      })
       return ok(id, { content: [{ type: 'text', text: `Error: ${e.message}` }], isError: true })
     }
   }
