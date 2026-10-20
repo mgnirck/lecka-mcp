@@ -1,0 +1,82 @@
+{
+  "us": {
+    "store_url": "https://www.getlecka.com",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "label": "United States",
+    "type": "shopify"
+  },
+  "de": {
+    "store_url": "https://www.getlecka.de",
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "label": "Germany",
+    "type": "shopify"
+  },
+  "dk": {
+    "store_url": "https://www.getlecka.dk",
+    "currency": "DKK",
+    "currency_symbol": "kr",
+    "label": "Denmark",
+    "type": "shopify"
+  },
+  "ch": {
+    "store_url": "https://www.getlecka.ch",
+    "currency": "CHF",
+    "currency_symbol": "CHF",
+    "label": "Switzerland",
+    "type": "shopify"
+  },
+  "vn": {
+    "store_url": "https://www.getlecka.vn",
+    "currency": "VND",
+    "currency_symbol": "₫",
+    "label": "Vietnam",
+    "decimals": 0,
+    "type": "shopify"
+  },
+  "sg": {
+    "store_url": "https://www.rdrc.sg/collections/lecka",
+    "currency": "SGD",
+    "currency_symbol": "S$",
+    "label": "Singapore",
+    "type": "distributor"
+  },
+  "hk": {
+    "store_url": "https://foodisdom.is/collections/lecka",
+    "currency": "HKD",
+    "currency_symbol": "HK$",
+    "label": "Hong Kong",
+    "type": "distributor"
+  },
+  "au": {
+    "store_url": "https://www.wildearth.com.au/brand/Lecka",
+    "currency": "AUD",
+    "currency_symbol": "A$",
+    "label": "Australia",
+    "type": "distributor",
+    "direct_link": true
+  },
+  "fr": {
+    "store_url": "https://www.audacesports.fr/brand/15-lecka",
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "label": "France",
+    "type": "distributor",
+    "direct_link": true
+  },
+  "kh": {
+    "store_url": "https://leckacambodia.myshopify.com",
+    "currency": "USD",
+    "currency_symbol": "$",
+    "label": "Cambodia",
+    "type": "shopify"
+  },
+  "international": {
+    "store_url": "https://www.getlecka.com",
+    "currency": null,
+    "currency_symbol": null,
+    "label": "International",
+    "type": "international"
+  }
+}

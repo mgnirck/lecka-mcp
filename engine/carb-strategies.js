@@ -166,7 +166,7 @@ const DURATION_ANCHORS = [
   [0,   0],
   [30,  0],
   [45,  20],
-  [60,  35],
+  [60,  42],
   [90,  50],
   [120, 58],
   [180, 63],
@@ -199,8 +199,15 @@ export function calculateCarbs_DistanceAdaptive(inputs, config) {
 
   let carbPerHour = interpolateFromAnchors(goal_minutes)
 
-  // Apply effort modifier (easy: -15%, race_pace: 0%, hard: +15%)
-  const effortMod = config.effort_modifiers?.[effort] ?? 1.0
+  // Taper the effort modifier for long events.
+  // At 240 min the full modifier applies. By 480 min it is reduced to 40% of its deviation.
+  // This reflects research showing duration dominates effort as carb driver for ultras.
+  const rawEffortMod = config.effort_modifiers?.[effort] ?? 1.0
+  const effortDeviation = rawEffortMod - 1.0
+  const taperingFactor = goal_minutes <= 240
+    ? 1.0
+    : Math.max(0.4, 1.0 - ((goal_minutes - 240) / (480 - 240)) * 0.6)
+  const effortMod = 1.0 + effortDeviation * taperingFactor
   carbPerHour *= effortMod
 
   if (training_mode) {

@@ -9,6 +9,7 @@
     "marathon":    { "easy": 50, "race_pace": 60, "hard": 75 },
     "ultra_50k":   { "easy": 60, "race_pace": 70, "hard": 90 },
     "ultra_100k":  { "easy": 60, "race_pace": 75, "hard": 90 },
+    "cycling":     { "easy": 50, "race_pace": 70, "hard": 90 },
     "triathlon_sprint": { "easy": 30, "race_pace": 45, "hard": 60 },
     "triathlon_olympic":{ "easy": 40, "race_pace": 60, "hard": 75 },
     "triathlon_70_3":   { "easy": 50, "race_pace": 70, "hard": 90 },
@@ -34,26 +35,52 @@
   },
 
   "condition_modifiers": {
-    "_comment": "Sodium and fluid uplifts for environmental conditions",
-    "cool":   { "sodium_multiplier": 0.85, "fluid_multiplier": 0.9 },
-    "mild":   { "sodium_multiplier": 1.0,  "fluid_multiplier": 1.0 },
-    "warm":   { "sodium_multiplier": 1.25, "fluid_multiplier": 1.2 },
-    "hot":    { "sodium_multiplier": 1.5,  "fluid_multiplier": 1.4 },
-    "humid":  { "sodium_multiplier": 1.4,  "fluid_multiplier": 1.35 }
+    "_comment": "Fluid uplifts for environmental conditions. Sodium follows fluid.",
+    "cool":   { "fluid_multiplier": 0.9 },
+    "mild":   { "fluid_multiplier": 1.0 },
+    "warm":   { "fluid_multiplier": 1.2 },
+    "hot":    { "fluid_multiplier": 1.4 },
+    "humid":  { "fluid_multiplier": 1.35 }
   },
 
   "sodium_targets_mg_per_hour": {
-    "_comment": "Base sodium target before condition modifier. Scales with body weight.",
-    "base_per_kg": 8,
-    "minimum":     300,
-    "maximum":     1500
+    "_comment": [
+      "Sodium v2 (Oct 2026): sodium_per_hour = fluid_ml_per_hour / 1000 × concentration_mg_per_litre.",
+      "Guidelines express sodium as a concentration in fluid: ACSM 2007 460–690 mg/L; DGE 2020 400–1100 mg/L.",
+      "average (700) = top of ACSM, middle of DGE. salty (1000) stays within DGE.",
+      "Gender, conditions and athlete profile reach sodium only through fluid. No elevation effect.",
+      "maximum is a product cap, not a safety limit. No guideline defines an hourly safety ceiling.",
+      "See NUTRITION_RESEARCH_ANALYSIS.md §2."
+    ],
+    "concentration_mg_per_litre": {
+      "light":   500,
+      "average": 700,
+      "salty":   1000
+    },
+    "default_sweat_profile": "average",
+    "minimum": 200,
+    "maximum": 1000
+  },
+
+  "sodium_duration_scale": {
+    "_comment": "Scales the sodium target down for short events where sodium replacement is not physiologically meaningful. At <45 min, sweat losses are negligible. Ramps to full rate by 90 min (DGE 2020 sets sodium guidance for activity over 90 min). Applied to the final clamped sodium_per_hour.",
+    "anchors": [
+      { "minutes": 0,  "multiplier": 0.0 },
+      { "minutes": 45, "multiplier": 0.4 },
+      { "minutes": 60, "multiplier": 0.65 },
+      { "minutes": 90, "multiplier": 1.0 }
+    ],
+    "_note": "For events >= 90 min the multiplier is 1.0 — full rate applies. Linear interpolation between anchors."
   },
 
   "fluid_targets_ml_per_hour": {
     "_comment": "Base fluid target before condition modifier. Scales with body weight.",
     "base_per_kg": 8,
     "minimum":     400,
-    "maximum":     1000
+    "maximum":     1000,
+    "maximum_running": 800,
+    "maximum_cycling_and_bike_leg": 1000,
+    "_note": "Running ceiling is 800 ml/h — gastric emptying at race pace is limited to ~600–800 ml/h. Cycling/triathlon bike leg ceiling remains 1000 ml/h due to convective cooling."
   },
 
   "gender_modifiers": {
@@ -113,45 +140,48 @@
   },
 
   "elevation_modifiers": {
-    "_comment": "Carb and sodium uplifts based on average course grade (elevation_gain_m / distance_m * 100). Climbing increases glycogen demand and core temperature.",
-    "flat":          { "avg_grade_pct_max": 1,  "carb_modifier": 1.00, "sodium_modifier": 1.00 },
-    "rolling":       { "avg_grade_pct_max": 3,  "carb_modifier": 1.05, "sodium_modifier": 1.05 },
-    "hilly":         { "avg_grade_pct_max": 6,  "carb_modifier": 1.10, "sodium_modifier": 1.08 },
-    "very_hilly":    { "avg_grade_pct_max": 10, "carb_modifier": 1.15, "sodium_modifier": 1.12 },
-    "mountain":      { "avg_grade_pct_max": 999,"carb_modifier": 1.22, "sodium_modifier": 1.18 }
+    "_comment": "Carb uplifts based on average course grade (elevation_gain_m / distance_m * 100). Climbing increases glycogen demand.",
+    "flat":          { "avg_grade_pct_max": 1,  "carb_modifier": 1.00 },
+    "rolling":       { "avg_grade_pct_max": 3,  "carb_modifier": 1.05 },
+    "hilly":         { "avg_grade_pct_max": 6,  "carb_modifier": 1.10 },
+    "very_hilly":    { "avg_grade_pct_max": 10, "carb_modifier": 1.15 },
+    "mountain":      { "avg_grade_pct_max": 999,"carb_modifier": 1.22 }
   },
 
   "athlete_profiles": {
     "_comment": [
       "Athlete profile modifiers for carb, sodium, and fluid targets.",
       "Accounts for variation in absorption capacity and sweat rate based on training.",
-      "Untrained athletes have 30-40% lower sweat rates and carb absorption.",
       "Elite athletes can tolerate higher rates due to training adaptations."
     ],
     "untrained": {
       "carb_modifier": 0.85,
-      "sodium_modifier": 0.85,
       "fluid_modifier": 0.85,
       "description": "Lower sweat rate, reduced carb absorption capacity"
     },
     "intermediate": {
       "carb_modifier": 1.0,
-      "sodium_modifier": 1.0,
       "fluid_modifier": 1.0,
       "description": "Standard endurance athlete profile (baseline)"
     },
     "trained": {
       "carb_modifier": 1.1,
-      "sodium_modifier": 1.1,
       "fluid_modifier": 1.1,
       "description": "Higher sweat rate, greater absorption capacity, better thermoregulation"
     },
     "elite": {
       "carb_modifier": 1.15,
-      "sodium_modifier": 1.15,
       "fluid_modifier": 1.15,
       "description": "Optimized sweat control, maximum absorption capacity"
     }
+  },
+
+  "age_modifiers": {
+    "_comment": "Optional. Applied to carb_per_hour only. Research: VO2max declines ~1%/year after 30; masters athletes have lower max CHO oxidation rates and slower gut motility (Coyle et al., Masters Athletes review 2020). No modifier = under-40 default. Age does not reliably modify sodium/fluid at population level.",
+    "under_40":  { "carb_modifier": 1.00, "label": "Under 40" },
+    "40_to_50":  { "carb_modifier": 0.97, "label": "40–49" },
+    "50_to_60":  { "carb_modifier": 0.93, "label": "50–59" },
+    "over_60":   { "carb_modifier": 0.88, "label": "60 and over" }
   },
 
   "vo2max_modifiers": {
@@ -184,13 +214,18 @@
       "warning_high_carb_rate": "For short races, carb rates >30 g/h increase GI distress risk"
     },
     "sodium": {
-      "warning_hot_humidity": "Consider pre-race sodium loading (20.5g in 2.5L water, 2-4 hrs before start)",
-      "warning_duration_min": 240,
-      "max_safe_mg_per_hour": 1500
+      "loading_min_duration_min": 240,
+      "loading_conditions": ["hot", "humid"],
+      "loading_ml_per_kg": 10,
+      "loading_sodium_mg_per_litre": 3770,
+      "_comment": "Sims 2007 (men, MSSE; women, J Appl Physiol) and Hamouti 2014: 10 ml/kg of a 164 mmol/L sodium drink. Sims: 7 portions over 60 min, starting 105 min before exercise (finished 45 min before). Table salt is 39.3% sodium.",
+      "salt_sodium_fraction": 0.393,
+      "warning_preload_template": "Hot or humid race of 4 hours or more: you can pre-load sodium. Studied protocol: about {ml} ml of water with about {salt} g table salt dissolved in it (about {mg} mg sodium; a level teaspoon of salt is about 6 g). Sip it over about an hour, finishing about 45 minutes before the start. Try it in training first. Skip it if you have high blood pressure or kidney problems."
     },
     "fluid": {
       "max_safe_ml_per_hour": 1000,
-      "warning_overhydration": "Intakes >1000 ml/h increase hyponatremia risk in events <2 hours"
+      "hyponatremia_min_duration_min": 240,
+      "warning_overhydration": "Long race: drinking more than you sweat is the main cause of dangerously low blood sodium, and extra salt does not prevent it. Drink to thirst. If you are gaining weight during the race, drink less."
     }
   }
 }
