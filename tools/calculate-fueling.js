@@ -121,7 +121,7 @@ export const toolDef = {
       gender: {
         type: 'string',
         enum: ['male', 'female', 'other'],
-        description: 'Affects sodium targets. Defaults to male.',
+        description: 'Affects the fluid target (sodium follows fluid). Defaults to male.',
       },
       conditions: {
         type: 'string',
@@ -140,7 +140,25 @@ export const toolDef = {
       athlete_profile: {
         type: 'string',
         enum: ['untrained', 'intermediate', 'trained', 'elite'],
-        description: 'Training level. Affects carb and sodium targets. Defaults to intermediate.',
+        description: 'Training level. Affects carb and fluid targets (sodium follows fluid). Defaults to intermediate.',
+      },
+      sweat_profile: {
+        type: 'string',
+        enum: ['light', 'average', 'salty'],
+        description: 'How salty the athlete\'s sweat is. Sets sodium per litre of fluid: light 500 mg/L, average 700 mg/L, salty 1000 mg/L. From a sweat test: under 30 mmol/L = light, 30–60 = average, 60 or more = salty. Only set it if the athlete knows; defaults to average.',
+      },
+      age_bracket: {
+        type: 'string',
+        enum: ['under_40', '40_to_50', '50_to_60', 'over_60'],
+        description: 'Optional. Masters athletes get a slightly lower carb target. Omit if unknown.',
+      },
+      elevation_gain_m: {
+        type: 'number',
+        description: 'Optional total climb in metres. With distance_km, raises the carb target on hilly courses.',
+      },
+      distance_km: {
+        type: 'number',
+        description: 'Optional course distance in km. Needed with elevation_gain_m.',
       },
       region: {
         type: 'string',
@@ -162,6 +180,10 @@ export async function run(args) {
     effort = 'race_pace',
     caffeine_ok = false,
     athlete_profile = 'intermediate',
+    sweat_profile = 'average',
+    age_bracket = null,
+    elevation_gain_m = 0,
+    distance_km = 0,
     region = 'us',
   } = args
 
@@ -171,6 +193,7 @@ export async function run(args) {
     Promise.resolve(calculateTargets({
       race_type, goal_minutes, weight_kg,
       gender, conditions, effort, caffeine_ok, athlete_profile,
+      sweat_profile, age_bracket, elevation_gain_m, distance_km,
     })),
   ])
 
@@ -214,6 +237,8 @@ export async function run(args) {
       carb_per_hour: targets.carb_per_hour,
       sodium_per_hour: targets.sodium_per_hour,
       fluid_ml_per_hour: targets.fluid_ml_per_hour,
+      sodium_mg_per_litre: targets.sodium_mg_per_litre,
+      sweat_profile: targets.sweat_profile,
       total_carbs_g: targets.total_carbs,
       total_sodium_mg: targets.total_sodium,
       total_duration_minutes: targets.total_duration_minutes,
@@ -241,8 +266,8 @@ export async function run(args) {
       bar_timing: goal_minutes >= 60
         ? 'Eat one bar 30 minutes before the race start. One bar after finishing supports recovery.'
         : null,
-      sodium_note: (conditions === 'hot' || conditions === 'humid')
-        ? 'Hot or humid conditions: consider supplementing with electrolyte tabs (e.g. Nuun, Precision Hydration). Lecka does not currently sell electrolyte products.'
+      sodium_note: (conditions === 'hot' || conditions === 'humid' || goal_minutes >= 240)
+        ? 'Gels alone rarely cover the sodium target in hot or long races. Electrolyte capsules or tabs (e.g. SaltStick, GU Roctane, Precision Hydration) taken with water can close the gap; keep drinking to thirst. Sodium does not reliably prevent cramps. Lecka does not currently sell electrolyte products.'
         : null,
     },
     cart_url,
